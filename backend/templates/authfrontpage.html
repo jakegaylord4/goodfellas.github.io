@@ -15,13 +15,13 @@
                     <a href="#" class="open-button"></a><span class="material-icons">person</span>Sign-Up</a>
                 </li> -->
                 <li>
-                    <a href="javascript:void(0)" class="open-button" onclick="openLoginForm()"><span class="material-icons">login</span>Login</a>
+                    <a href="javascript:void(0)" class="open-button" onclick="openLogoutForm()"><span class="material-icons">logout</span>Logout</a>
                     <div class="logout-popup" id="logoutForm">
                         <form action="/logout" method="POST" class="logout-container">
                             <h1>Logout</h1>
  
-                            <button type="submit" class="btn" onclick="login()">Logout</button>
-                            <button type="button" class="btn cancel" onclick="closeLoginForm()">Close</button>
+                            <button type="submit" class="btn" onclick="logout()">Logout</button>
+                            <button type="button" class="btn cancel" onclick="closeLogoutForm()">Close</button>
                         </form>
                     </div>
                 </li>

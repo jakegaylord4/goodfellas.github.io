@@ -31,3 +31,11 @@ let signUp = () => {
     const password = document.getElementById("psw-signup").value;
     console.log("Sign up clicked", firstName, lastName, email, password);
 }
+
+function openLogoutForm() {
+    document.getElementById("logoutForm").style.display = "block";
+  }
+  
+  function closeLogoutForm() {
+    document.getElementById("logoutForm").style.display = "none";
+  }

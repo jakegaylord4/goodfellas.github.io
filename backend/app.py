@@ -27,8 +27,13 @@ def add_user_endpoint():
 
     if not all([firstname, lastname, email, password]):
         return jsonify({"message": "Missing required fields"}), 400
+    
+    if (email.split("@")[1] != "bowdoin.edu"):
+        return jsonify({"message": "Invalid email domain, must be @bowdoin.edu"}), 400
+    
 
     user = add_user(firstname, lastname, email, password)
+    
     if not user:
         return jsonify({"message": "Email already in use"}), 409
     user_id = user["id"]

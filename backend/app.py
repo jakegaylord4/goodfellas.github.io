@@ -11,8 +11,9 @@ app = Flask(__name__)
 def home():
     return render_template('frontpage.html')
 
-@app.route('/get_user')
-def login():
+# THis is a get user route which we use for the login form, we dont officially need this route just the function
+
+def get_user_from_email_and_password():
     email = request.args.get("email")
     password = request.args.get("password")
     user = get_user(email, password)
@@ -21,7 +22,7 @@ def login():
     return "User found"
 
 
-
+#Post request to backend to add user to mock db
 @app.route('/signup', methods=['POST'])
 def add_user_endpoint():
     data = request.get_json()
@@ -30,9 +31,12 @@ def add_user_endpoint():
     password = data.get("password")
     role = data.get("role")
     user = add_user(name, email, password, role)
+    #add check to see if user was added successfully
+    if not user:
+        return "User not added"
     return jsonify({"message": "User added", "user": user}), 201
 
-@app.route('/add_user')
+@app.route('/login')
 def add_user_route():
     return "ADD_USER"
 

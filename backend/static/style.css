@@ -128,3 +128,107 @@ body {
     text-align: center;
     margin: 10vh 4vw;
 }
+
+.open-button {
+    color: white;
+    padding: 16px 20px;
+    display: inline-flex;
+    align-items: center;
+ }
+ 
+ 
+ .login-popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 15px;
+    border: 3px solid white;
+ }
+ .login-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+ 
+ 
+ }
+ 
+ 
+ .login-container input[type=email], .login-container input[type=password]{
+    width: 100%;
+    padding: 15px;
+    border:none;
+ 
+ 
+ }
+ 
+ 
+ .login-container input[type=email]:focus, .login-container input[type=password]:focus {
+    background-color: white;
+    outline: none;
+ }
+ 
+ 
+ .login-container .btn {
+    background-color: grey;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+ 
+ 
+ .login-container .cancel {
+    background-color: red;
+ }
+ 
+
+ .signup-popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 15px;
+    border: 3px solid white;
+ }
+ .signup-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+ 
+ 
+ }
+ 
+ 
+ .signup-container input[type=text],  .signup-container input[type=text], 
+  .signup-container input[type=email], .signup-container input[type=password]{
+    width: 100%;
+    padding: 15px;
+    border:none;
+ 
+ 
+ }
+ 
+ 
+ .signup-container input[type=text]:focus,  .signup-container input[type=text]:focus, 
+  .signup-container input[type=email]:focus, .signup-container input[type=password]:focus {
+    background-color: white;
+    outline: none;
+ }
+ 
+ 
+ .signup-container .btn {
+    background-color: grey;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+ 
+ 
+ .signup-container .cancel {
+    background-color: red;
+ }
+ 

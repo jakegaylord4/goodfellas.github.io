@@ -10,9 +10,9 @@ app = Flask(__name__)
 def home():
     return render_template('frontpage.html')
 
-@app.route('/auth')
-def home():
-    return render_template('authfrontpage.html')
+# @app.route('/auth')
+# def auth():
+#     return render_template('authfrontpage.html')
 
 def get_user_from_email_and_password(email, password):
     return get_user(email, password)
@@ -57,8 +57,9 @@ def login_endpoint():
 
     user_id = user["id"]
     update_user_status(user_id, "active")
+    # jsonify({"message": "Login successful", "user": user}), 200
 
-    return jsonify({"message": "Login successful", "user": user}), 200
+    return render_template('authfrontpage.html')
 
 
 if __name__ == '__main__':

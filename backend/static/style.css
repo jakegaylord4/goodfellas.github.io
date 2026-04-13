@@ -232,7 +232,6 @@ body {
     background-color: red;
  }
  
-
  .logout-popup {
     display: none;
     position: fixed;
@@ -246,6 +245,17 @@ body {
     background-color: white;
  }
 
- .logout-container .cancel {
+ .logout-container .btn {
+    background-color: grey;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+
+  .logout-container .cancel {
     background-color: red;
+    
  }

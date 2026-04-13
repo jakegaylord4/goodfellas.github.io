@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f7f4
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #333333;
+    font-size: 1.2rem;
+    font-weight: 350;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    align-items: stretch;
+}
+
+.navbar li {
+    display: flex;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 2vh 1.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar li a:hover {
+    background-color: #111111;
+}
+
+.right-nav {
+    margin-left: auto;
+}
+
+.footer {
+    background-color: #2a2a2a;
+    padding: 3vh 2vw;
+}
+
+.footer-container {
+    display: grid;
+    color: white;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+.footer-team {
+    display: flex;
+    flex-direction: column;
+}
+
+.website-content {
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 4vw;
+    text-align: center;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+    gap: 5vw;
+    text-align: left;
+}
+
+.slideshow img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 2rem;
+    border: 0.2rem solid #333333;
+}
+
+.get-started {
+    margin: 8vh 3vw;
+}
+
+.service-links {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.service-links button {
+    border-radius: 0.8rem;
+    padding: 3vh 8vw;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #333333;
+    color: white;
+}
+
+.service-links button:hover {
+    background-color: darkgray;
+}
+
+.service-links button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.intro-text {
+    text-align: center;
+    margin: 10vh 4vw;
+}

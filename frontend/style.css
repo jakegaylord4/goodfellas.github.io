@@ -66,3 +66,17 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.website-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f7f4;
+    padding: 2vh 4vw;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+}

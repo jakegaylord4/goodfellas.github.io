@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #f8f7f4
 }
 
 .navbar {
@@ -70,8 +71,8 @@ body {
 .website-content {
     display: flex;
     flex-direction: column;
-    background-color: #f8f7f4;
     padding: 3vh 4vw;
+    text-align: center;
 }
 
 .intro-content {
@@ -80,6 +81,7 @@ body {
     justify-items: center;
     align-items: center;
     gap: 5vw;
+    text-align: left;
 }
 
 .slideshow img {
@@ -89,4 +91,37 @@ body {
     display: block;
     border-radius: 2rem;
     border: 0.2rem solid #333333;
+}
+
+.service-links {
+    margin: 4vh 3vw;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.service-links button {
+    border-radius: 0.8rem;
+    padding: 3vh 8vw;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #333333;
+    color: white;
+}
+
+.service-links button:hover {
+    background-color: darkgray;
+}
+
+.service-links button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.intro-text {
+    text-align: center;
+    margin: 10vh 4vw;
 }

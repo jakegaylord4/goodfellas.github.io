@@ -10,7 +10,9 @@ app = Flask(__name__)
 def home():
     return render_template('frontpage.html')
 
-
+@app.route('/auth')
+def home():
+    return render_template('authfrontpage.html')
 
 def get_user_from_email_and_password(email, password):
     return get_user(email, password)

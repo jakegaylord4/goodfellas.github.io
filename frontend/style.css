@@ -93,8 +93,11 @@ body {
     border: 0.2rem solid #333333;
 }
 
+.get-started {
+    margin: 8vh 3vw;
+}
+
 .service-links {
-    margin: 4vh 3vw;
     display: flex;
     align-content: center;
     justify-content: center;

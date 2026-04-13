@@ -71,7 +71,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #f8f7f4;
-    padding: 2vh 4vw;
+    padding: 3vh 4vw;
 }
 
 .intro-content {
@@ -79,4 +79,14 @@ body {
     grid-template-columns: auto auto;
     justify-items: center;
     align-items: center;
+    gap: 5vw;
+}
+
+.slideshow img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 2rem;
+    border: 0.2rem solid #333333;
 }

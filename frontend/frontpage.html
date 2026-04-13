@@ -11,15 +11,39 @@
             <ul>
                 <li><a href="frontpage.html">PolarGigs</a></li>
                 <li class="right-nav"><a href="#"><span class="material-icons">phone</span>Contact</a></li>
-                <li><a href="#"><span class="material-icons">person</span>Sign-Up</a></li>
                 <li>
-                    <a href="javascript:void(0)" class="open-button" onclick="openForm()"><span class="material-icons">login</span>Login</a>
+                    <a href="#" class="open-button" onclick="openSignUpForm()"><span class="material-icons">person</span>Sign-Up</a>
+                    <div class="signup-popup" id="signupForm">
+                        <form action="/action_page.php" class="signup-container">
+                            <h1>Sign-Up</h1>
+ 
+                            <label for="firstname">First Name</label>
+                            <input type="text" placeholder="First Name" name="firstname" required>
+
+                            <label for="lastname">Last Name</label>
+                            <input type="text" placeholder="Last Name" name="lastname" required>
+
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Enter Email" name="email" required>
+ 
+ 
+                            <label for="psw">Password</label>
+                            <input type="password" placeholder="Create Password" name="psw" required>
+ 
+ 
+                            <button type="submit" class="btn">Create Account</button>
+                            <button type="button" class="btn cancel" onclick="closeSignUpForm()">Close</button>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="open-button" onclick="openLoginForm()"><span class="material-icons">login</span>Login</a>
                     <div class="login-popup" id="loginForm">
                         <form action="/action_page.php" class="login-container">
                             <h1>Login</h1>
  
                             <label for="email">Email</label>
-                            <input type="text" placeholder="Enter Email" name="email" required>
+                            <input type="email" placeholder="Enter Email" name="email" required>
  
  
                             <label for="psw">Password</label>
@@ -27,7 +51,7 @@
  
  
                             <button type="submit" class="btn">Login</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                            <button type="button" class="btn cancel" onclick="closeLoginForm()">Close</button>
                         </form>
                     </div>
                 </li>

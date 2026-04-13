@@ -1,40 +1,56 @@
-
 database = [
-    {"id": 1, "name": "John Doe", "email": "john.doe@example.com", "password": "password", "role": "role"}
+    {"id": 1, "name": "John Doe", "email": "john.doe@example.com", "password": "password", "status": "active"}
 ]
-id_counter = 1
+id_counter = 2
 
-def add_user(name, email, password, role):
+
+def add_user(firstname, lastname, email, password):
     global id_counter
-    user = {}
-    user["id"] = id_counter
+
+    if any(u["email"] == email for u in database):
+        return None
+
+    user = {
+        "id": id_counter,
+        "name": firstname + " " + lastname,
+        "email": email,
+        "password": password,
+        "status": "active"
+    }
     id_counter += 1
-    user["name"] = name
-    user["email"] = email
-    user["password"] = password
-    user["role"] = role
     database.append(user)
+    return user
 
 
 def get_user(email, password):
     for user in database:
-        if user["email"] == email and user["password"] == password:
+        if user["email"] == email and user["password"] == password and user["status"] == "active":
             return user
     return None
 
 
-def update_user(user_id, user):
-    for i, u in enumerate(database):
-        if u["id"] == user_id:
-            database[i] = user
+def get_user_by_id(user_id):
+    for user in database:
+        if user["id"] == user_id:
+            return user
+    return None
+
+
+def update_user(user_id, fields: dict):
+    for user in database:
+        if user["id"] == user_id:
+            user.update(fields)
             return True
     return False
+
+
+def update_user_status(user_id, status):
+    return update_user(user_id, {"status": status})
 
 
 def delete_user(user_id):
-    for i, u in enumerate(database):
-        if u["id"] == user_id:
+    for i, user in enumerate(database):
+        if user["id"] == user_id:
             database.pop(i)
             return True
     return False
-

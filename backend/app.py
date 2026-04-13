@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from dotenv import load_dotenv
 import os
-from database.database import get_user, add_user, update_user
-
+from database.database import get_user, add_user, update_user, update_user_status, get_user_by_id  
 load_dotenv()
 
 app = Flask(__name__)
@@ -11,34 +10,49 @@ app = Flask(__name__)
 def home():
     return render_template('frontpage.html')
 
-# THis is a get user route which we use for the login form, we dont officially need this route just the function
-
-def get_user_from_email_and_password():
-    email = request.args.get("email")
-    password = request.args.get("password")
-    user = get_user(email, password)
-    if not user:
-        return "User not found"
-    return "User found"
 
 
-#Post request to backend to add user to mock db
+def get_user_from_email_and_password(email, password):
+    return get_user(email, password)
+
+
+
 @app.route('/signup', methods=['POST'])
 def add_user_endpoint():
-    data = request.get_json()
-    name = data.get("name")
-    email = data.get("email")
-    password = data.get("password")
-    role = data.get("role")
-    user = add_user(name, email, password, role)
-    #add check to see if user was added successfully
-    if not user:
-        return "User not added"
-    return jsonify({"message": "User added", "user": user}), 201
+    firstname = request.form.get("firstname")
+    lastname = request.form.get("lastname")
+    email = request.form.get("email")
+    password = request.form.get("password")
 
-@app.route('/login')
-def add_user_route():
-    return "ADD_USER"
+
+    if not all([firstname, lastname, email, password]):
+        return jsonify({"message": "Missing required fields"}), 400
+
+    user = add_user(firstname, lastname, email, password)
+    if not user:
+        return jsonify({"message": "Email already in use"}), 409
+    user_id = user["id"]
+    update_user(user_id, {"status": "active"})
+    return jsonify({"message": "User added", "user": user, "user_id": user_id}), 201
+
+
+@app.route('/login', methods=['POST'])
+def login_endpoint():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    if not all([email, password]):
+        return jsonify({"message": "Missing email or password"}), 400
+
+    user = get_user_from_email_and_password(email, password)
+
+    if not user:
+        return jsonify({"message": "User not found"}), 404
+
+    user_id = user["id"]
+    update_user_status(user_id, "active")
+
+    return jsonify({"message": "Login successful", "user": user}), 200
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5000)))

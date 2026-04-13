@@ -14,7 +14,7 @@
                 <li>
                     <a href="#" class="open-button" onclick="openSignUpForm()"><span class="material-icons">person</span>Sign-Up</a>
                     <div class="signup-popup" id="signupForm">
-                        <form action="/action_page.php" class="signup-container">
+                        <form action="/signup" method="POST" class="signup-container">
                             <h1>Sign-Up</h1>
  
                             <label for="firstname">First Name</label>
@@ -28,10 +28,10 @@
  
  
                             <label for="psw">Password</label>
-                            <input type="password" placeholder="Create Password" id= "psw-signup" name="psw" required>
+                            <input type="password" placeholder="Create Password" id= "psw-signup" name="password" required>
  
  
-                            <button type="submit" class="btn" onclick="signUp()">Create Account</button>
+                            <button type="submit" class="btn">Create Account</button>
                             <button type="button" class="btn cancel" onclick="closeSignUpForm()">Close</button>
                         </form>
                     </div>
@@ -39,7 +39,7 @@
                 <li>
                     <a href="javascript:void(0)" class="open-button" onclick="openLoginForm()"><span class="material-icons">login</span>Login</a>
                     <div class="login-popup" id="loginForm">
-                        <form action="/action_page.php" class="login-container">
+                        <form action="/login" method="POST" class="login-container">
                             <h1>Login</h1>
  
                             <label for="email">Email</label>
@@ -47,7 +47,7 @@
  
  
                             <label for="psw">Password</label>
-                            <input type="password" placeholder="Enter Password" id="psw-login" name="psw" required>
+                            <input type="password" placeholder="Enter Password" id="psw-login" name="password" required>
  
  
                             <button type="submit" class="btn" onclick="login()">Login</button>

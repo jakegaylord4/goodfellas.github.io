@@ -50,4 +50,19 @@ body {
 
 .footer {
     background-color: #2a2a2a;
+    padding: 3vh 2vw;
+}
+
+.footer-container {
+    display: grid;
+    color: white;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+    gap: 10vw;
+}
+
+.footer-team {
+    display: flex;
+    flex-direction: column;
 }

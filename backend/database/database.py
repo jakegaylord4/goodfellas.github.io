@@ -3,6 +3,9 @@ database = [
 ]
 id_counter = 2
 
+def get_all_users():
+    return database
+
 
 def add_user(firstname, lastname, email, password):
     global id_counter
@@ -24,7 +27,7 @@ def add_user(firstname, lastname, email, password):
 
 def get_user(email, password):
     for user in database:
-        if user["email"] == email and user["password"] == password and user["status"] == "active":
+        if user["email"] == email and user["password"] == password:
             return user
     return None
 

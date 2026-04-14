@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, session
 from dotenv import load_dotenv
 import os
-from database.database import get_user, add_user, update_user, update_user_status, get_user_by_id, get_all_users
+from database.database import get_user, add_user, update_user, update_user_status, get_user_by_id
 
 load_dotenv()
 
@@ -42,14 +42,15 @@ def add_user_endpoint():
     password = request.form.get("password")
 
     if not all([firstname, lastname, email, password]):
-        return jsonify({"message": "Missing required fields"}), 400
+        return render_template('frontpage.html', signup_error= "Missing required fields")
+
 
     if not email.endswith("@bowdoin.edu"):
-        return jsonify({"message": "Invalid email domain, must be @bowdoin.edu"}), 400
+        return render_template('frontpage.html', signup_error= "Invalid email domain, must be @bowdoin.edu")
 
     user = add_user(firstname, lastname, email, password)
     if not user:
-        return jsonify({"message": "Email already in use"}), 409
+        return render_template('frontpage.html', signup_error= "Email already in use")
 
     session['user_id'] = user["id"]
     return render_template('authfrontpage.html')
@@ -61,11 +62,11 @@ def login_endpoint():
     password = request.form.get("password")
 
     if not all([email, password]):
-        return jsonify({"message": "Missing email or password"}), 400
+        return render_template('frontpage.html', login_error="Missing email or password")
 
     user = get_user_from_email_and_password(email, password)
     if not user:
-        return jsonify({"message": "User not found", "users": get_all_users()}), 404
+        return render_template('frontpage.html', login_error="User not found. Please check your credentials.")
 
     session['user_id'] = user["id"]
     update_user_status(user["id"], "active")

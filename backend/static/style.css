@@ -259,3 +259,8 @@ body {
     background-color: red;
     
  }
+
+ .error-message {
+    color: red;
+    font-size: 0.9em;
+ }

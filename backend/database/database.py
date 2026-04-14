@@ -3,8 +3,6 @@ database = [
 ]
 id_counter = 2
 
-def get_all_users():
-    return database
 
 
 def add_user(firstname, lastname, email, password):

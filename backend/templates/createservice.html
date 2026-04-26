@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>PolarGigs - Create a Service</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='service_style.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/auth">PolarGigs</a></li>
+                <li class="right-nav"><a href="/find_service">Find A Service</a></li>
+                <li><a href="#"><span class="material-icons">phone</span>Contact</a></li>
+                <li><a href="#"><span class="material-icons">help_outline</span>Help</a></li>
+                <li><a href="#"><span class="material-icons">person</span><span id="nav-user-name"></span></a></li>
+                <li>
+                    <a href="javascript:void(0)" class="open-button" onclick="openLogoutForm()"><span class="material-icons">logout</span>Logout</a>
+                    <div class="logout-popup" id="logoutForm">
+                        <form action="/logout" method="POST" class="logout-container">
+                            <h1>Logout</h1>
+                            <button type="submit" class="btn">Logout</button>
+                            <button type="button" class="btn cancel" onclick="closeLogoutForm()">Close</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="website-content">
+            <div class="create-service-container">
+                <h1>Create your Service</h1>
+
+                {% if error %}
+                    <p class="error-message">{{ error }}</p>
+                {% endif %}
+                {% if success %}
+                    <p class="success-message">{{ success }}</p>
+                {% endif %}
+
+                <form action="/submit_service" method="POST" enctype="multipart/form-data" class="service-form">
+                    <div class="form-row">
+                        <label for="service_name"><strong>Service Name:</strong></label>
+                        <input type="text" id="service_name" name="service_name" placeholder="Service Name">
+                    </div>
+
+                    <div class="form-row">
+                        <label for="service_description"><strong>Service Description:</strong></label>
+                        <textarea id="service_description" name="service_description" placeholder="Service Description"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="service_price"><strong>Service Price Range:</strong></label>
+                        <input type="text" id="service_price" name="service_price" placeholder="Service Price Range">
+                    </div>
+
+                    <div class="form-row">
+                        <label><strong>Picture of Service:</strong></label>
+                        <div>
+                            <label class="upload-btn" for="service_image">Upload a Photo</label>
+                            <input type="file" id="service_image" name="service_image" accept="image/*" style="display:none">
+                            <span id="file-name"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Create Service</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-info">This website has no official affiliation with Bowdoin College</div>
+            </div>
+        </footer>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <script>
+            async function getCurrentUser() {
+                const response = await fetch('/me');
+                if (response.status === 401) {
+                    window.location.href = '/';
+                    return;
+                }
+                const data = await response.json();
+                document.getElementById('nav-user-name').innerText = data.user.name;
+            }
+
+            getCurrentUser();
+        </script>
+    </body>
+</html>

@@ -60,7 +60,7 @@ def delete_user(user_id):
     return False
 
 def add_service(user_id,service_name, service_description, service_price, service_image):
-    
+    print("ADDING SERVICE")
     
     service = {
         "id": user_id,
@@ -70,4 +70,9 @@ def add_service(user_id,service_name, service_description, service_price, servic
         "service_image": service_image
     }
     service_database.append(service)
+    print(service_database)
     return service
+
+def get_services():
+    return service_database
+

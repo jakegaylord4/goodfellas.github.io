@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, session
 from dotenv import load_dotenv
 import os
-from database.database import get_user, add_user, update_user, update_user_status, get_user_by_id
+from database.database import get_user, add_user, update_user, update_user_status, get_user_by_id, add_service, get_services
 
 load_dotenv()
 
@@ -83,24 +83,28 @@ def logout_endpoint():
 
 @app.route('/services', methods=['GET'])
 def services():
-    return render_template('services.html')
+    return render_template('createservice.html')
+
+@app.route('/find_service', methods=['GET'])
+def find_service():
+    services = get_services()
+    return render_template('find_service.html', services=services)
 
 @app.route('/submit_service', methods=['POST'])
 def submit_service():
     user_id = session.get('user_id')
     if not user_id:
-        return render_template('services.html', error="Not logged in")
-    
+        return render_template('createservice.html', error="Not logged in")
+
     service_name = request.form.get("service_name")
     service_description = request.form.get("service_description")
     service_price = request.form.get("service_price")
-    service_image = request.form.get("service_image")
-    
+    service_image = request.files.get("service_image")
+
     if not all([service_name, service_description, service_price, service_image]):
-        return render_template('services.html', error="Missing required fields")
-    
+        return render_template('createservice.html', error="Missing required fields")
     add_service(user_id, service_name, service_description, service_price, service_image)
-    return render_template('services.html')
+    return render_template('createservice.html', success='Service created successfully!')
 
 
 if __name__ == '__main__':

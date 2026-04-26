@@ -1,0 +1,351 @@
+body {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f8f7f4
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #333333;
+    font-size: 1.2rem;
+    font-weight: 350;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    align-items: stretch;
+}
+
+.navbar li {
+    display: flex;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 2vh 1.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar li a:hover {
+    background-color: #111111;
+}
+
+.right-nav {
+    margin-left: auto;
+}
+
+.footer {
+    background-color: #2a2a2a;
+    padding: 3vh 2vw;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.website-content {
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 4vw;
+    text-align: center;
+}
+
+.intro-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+    gap: 5vw;
+    text-align: left;
+}
+
+.slideshow img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 2rem;
+    border: 0.2rem solid #333333;
+}
+
+.get-started {
+    margin: 8vh 3vw;
+}
+
+.service-links {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.service-links button {
+    border-radius: 0.8rem;
+    padding: 3vh 8vw;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #333333;
+    color: white;
+}
+
+.service-links button:hover {
+    background-color: darkgray;
+}
+
+.service-links button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.intro-text {
+    text-align: center;
+    margin: 10vh 4vw;
+}
+
+.open-button {
+    color: white;
+    padding: 16px 20px;
+    display: inline-flex;
+    align-items: center;
+ }
+ 
+ 
+ .login-popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 15px;
+    border: 3px solid white;
+ }
+ .login-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+ 
+ 
+ }
+ 
+ 
+ .login-container input[type=email], .login-container input[type=password]{
+    width: 100%;
+    padding: 15px;
+    border:none;
+ 
+ 
+ }
+ 
+ 
+ .login-container input[type=email]:focus, .login-container input[type=password]:focus {
+    background-color: white;
+    outline: none;
+ }
+ 
+ 
+ .login-container .btn {
+    background-color: grey;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+ 
+ 
+ .login-container .cancel {
+    background-color: red;
+ }
+ 
+
+ .signup-popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 15px;
+    border: 3px solid white;
+ }
+ .signup-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+ 
+ 
+ }
+ 
+ 
+ .signup-container input[type=text],  .signup-container input[type=text], 
+  .signup-container input[type=email], .signup-container input[type=password]{
+    width: 100%;
+    padding: 15px;
+    border:none;
+ 
+ 
+ }
+ 
+ 
+ .signup-container input[type=text]:focus,  .signup-container input[type=text]:focus, 
+  .signup-container input[type=email]:focus, .signup-container input[type=password]:focus {
+    background-color: white;
+    outline: none;
+ }
+ 
+ 
+ .signup-container .btn {
+    background-color: grey;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+ 
+ 
+ .signup-container .cancel {
+    background-color: red;
+ }
+ 
+ .logout-popup {
+    display: none;
+    position: fixed;
+    top: 100px;
+    right: 15px;
+    border: 3px solid white;
+ }
+ .logout-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+ }
+
+ .logout-container .btn {
+    background-color: grey;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+
+  .logout-container .cancel {
+    background-color: red;
+    
+ }
+
+ .error-message {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+ }
+
+/* ── Create Service Page ── */
+
+.create-service-container {
+    max-width: 650px;
+    margin: 5vh auto;
+    text-align: left;
+}
+
+.create-service-container h1 {
+    text-align: center;
+    margin-bottom: 3vh;
+}
+
+.service-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-row label {
+    text-align: right;
+}
+
+.form-row input[type="text"],
+.form-row textarea {
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    width: 100%;
+    background-color: white;
+}
+
+.form-row textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.upload-btn {
+    display: block;
+    padding: 10px;
+    background-color: #e8e8e8;
+    border: 1px solid #ccc;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.upload-btn:hover {
+    background-color: darkgray;
+}
+
+#file-name {
+    font-size: 0.85rem;
+    color: gray;
+    margin-top: 4px;
+    display: block;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.form-submit .btn {
+    background-color: #333333;
+    color: white;
+    padding: 1.2vh 6vw;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.form-submit .btn:hover {
+    background-color: darkgray;
+}

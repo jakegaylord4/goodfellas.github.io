@@ -39,3 +39,11 @@ function openLogoutForm() {
   function closeLogoutForm() {
     document.getElementById("logoutForm").style.display = "none";
   }
+
+const fileInput = document.getElementById('service_image');
+if (fileInput) {
+    fileInput.addEventListener('change', function () {
+        const fileName = this.files[0] ? this.files[0].name : '';
+        document.getElementById('file-name').innerText = fileName;
+    });
+}

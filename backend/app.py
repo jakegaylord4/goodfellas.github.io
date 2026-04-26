@@ -81,6 +81,27 @@ def logout_endpoint():
     session.pop('user_id', None)
     return render_template('frontpage.html')
 
+@app.route('/services', methods=['GET'])
+def services():
+    return render_template('services.html')
+
+@app.route('/submit_service', methods=['POST'])
+def submit_service():
+    user_id = session.get('user_id')
+    if not user_id:
+        return render_template('services.html', error="Not logged in")
+    
+    service_name = request.form.get("service_name")
+    service_description = request.form.get("service_description")
+    service_price = request.form.get("service_price")
+    service_image = request.form.get("service_image")
+    
+    if not all([service_name, service_description, service_price, service_image]):
+        return render_template('services.html', error="Missing required fields")
+    
+    add_service(user_id, service_name, service_description, service_price, service_image)
+    return render_template('services.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5000)))

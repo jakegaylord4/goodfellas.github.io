@@ -64,9 +64,19 @@ body {
     gap: 10vw;
 }
 
-.footer-team {
+.footer-socials {
     display: flex;
     flex-direction: column;
+}
+
+.footer-socials a {
+    padding: 1vh 0;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-socials a:hover {
+    text-decoration: underline;
 }
 
 .website-content {

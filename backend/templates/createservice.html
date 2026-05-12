@@ -32,10 +32,10 @@
                 <h1>Create a Service</h1>
 
                 {% if error %}
-                    <p class="error-message">{{ error }}</p>
+                    <p class="creation-message">{{ error }}</p>
                 {% endif %}
                 {% if success %}
-                    <p class="success-message">{{ success }}</p>
+                    <p class="creation-message">{{ success }}</p>
                 {% endif %}
 
                 <form action="/submit_service" method="POST" enctype="multipart/form-data" class="service-form">
@@ -51,7 +51,7 @@
 
                     <div class="form-row">
                         <label for="service_price"><strong>Service Price Range:</strong></label>
-                        <input type="text" id="service_price" name="service_price" placeholder="Service Price Range">
+                        <input type="text" id="service_price" name="service_price" placeholder="Ex: $10-25">
                     </div>
 
                     <div class="form-row">

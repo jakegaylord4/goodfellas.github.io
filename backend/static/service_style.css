@@ -282,8 +282,10 @@ body {
 /* ── Create Service Page ── */
 
 .create-service-container {
-    max-width: 650px;
-    margin: 5vh auto;
+    max-width: 38rem;
+    width: 90%;
+    margin: 2vh auto;
+    padding: 1rem;
     text-align: left;
 }
 
@@ -296,25 +298,27 @@ body {
     display: flex;
     flex-direction: column;
     gap: 2vh;
+    justify-content: center;
 }
 
 .form-row {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
 .form-row label {
-    text-align: right;
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 
 .form-row input[type="text"],
 .form-row textarea {
-    padding: 10px;
+    box-sizing: border-box;
     font-family: inherit;
+    padding: 1rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 0.1rem solid #ccc;
     border-radius: 0.4rem;
     width: 100%;
     background-color: white;
@@ -322,14 +326,16 @@ body {
 
 .form-row textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 4rem;
 }
 
 .upload-btn {
+    box-sizing: border-box;
     display: block;
-    padding: 10px;
+    padding: 1rem;
+    width: 100%;
     background-color: #e8e8e8;
-    border: 1px solid #ccc;
+    border: 0.1rem solid #ccc;
     border-radius: 0.4rem;
     cursor: pointer;
     text-align: center;
@@ -356,7 +362,7 @@ body {
 .form-submit .btn {
     background-color: #333333;
     color: white;
-    padding: 1.2vh 6vw;
+    padding: 1.6vh 6vw;
     font-size: 1.1rem;
     font-weight: bold;
     border: none;

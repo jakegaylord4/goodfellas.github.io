@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify, session
 from dotenv import load_dotenv
-import os
+import os, uuid
 from database.database import get_user, add_user, update_user, update_user_status, get_user_by_id, add_service, get_services
 
 load_dotenv()
@@ -103,9 +103,19 @@ def submit_service():
 
     if not all([service_name, service_description, service_price, service_image]):
         return render_template('createservice.html', error="Missing required fields")
-    add_service(user_id, service_name, service_description, service_price, service_image)
+    
+    filename = service_image.filename
+
+    # Create a unique name for the image
+    extension = os.path.splitext(service_image.filename)[1]
+    new_name = str(uuid.uuid4()) + extension
+
+    upload_folder = os.path.join(app.static_folder, 'uploads')
+    os.makedirs(upload_folder, exist_ok=True)
+    service_image.save(os.path.join(upload_folder, new_name))
+    
+    add_service(user_id, service_name, service_description, service_price, new_name)
     return render_template('createservice.html', success='Service created successfully!')
 
-
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5000)))
+    app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5001)))

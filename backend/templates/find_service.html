@@ -1,19 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Find Service</title>
+    <meta charset="UTF-8">
+        <title>PolarGigs</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='service_style.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-    <h1>Find Service</h1>
     <div>
-        {% for service in services %}
-            <div>
-                <h2>{{ service.service_name }}</h2>
-                <p>{{ service.service_description }}</p>
-                <p>{{ service.service_price }}</p>
-                <img src="{{ service.service_image }}" alt="{{ service.service_name }}">
-            </div>
-        {% endfor %}
+        <nav class="navbar">
+            <ul>
+                <li><a href="/auth">PolarGigs</a></li>
+                <li class="right-nav"><a href="/services">Create a Service</a></li>
+                <li><a href="#"><span class="material-icons">phone</span>Contact</a></li>
+                <li><a href="#"><span class="material-icons">help_outline</span>Help</a></li>
+                <li ><a href="#"><span id="user-avatar"></span><span id="nav-user-name"></span></a></li>
+                <li>
+                    <a href="javascript:void(0)" class="open-button" onclick="openLogoutForm()"><span class="material-icons">logout</span>Logout</a>
+                    <div class="logout-popup" id="logoutForm">
+                        <form action="/logout" method="POST" class="logout-container">
+                            <h1>Logout</h1>
+                            <button type="submit" class="btn-primary form-btn">Logout</button>
+                            <button type="button" class="btn-secondary form-btn" onclick="closeLogoutForm()">Close</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="website-content">
+            {% for service in services %}
+                <div>
+                    <h2>{{ service.service_name }}</h2>
+                    <p>{{ service.service_description }}</p>
+                    <p>{{ service.service_price }}</p>
+                    <img src="{{ service.service_image }}" alt="{{ service.service_name }}">
+                </div>
+            {% endfor %}
+        </div>
     </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">This website has no official affiliation with Bowdoin College</div>
+            <div class="footer-socials">
+                <h2>Follow Us</h2>
+                <a href="https://www.instagram.com/?hl=en">Instagram</a>
+                <a href="https://x.com/">Twitter</a>
+                <a href="https://www.facebook.com/">Facebook</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        async function getCurrentUser() {
+            const response = await fetch('/me');
+            if (response.status === 401) {
+                window.location.href = '/';
+                return;
+            }
+            const data = await response.json();
+            document.getElementById('nav-user-name').innerText = data.user.name;
+            const names = data.user.name.split(' ');
+            const initials = names[0][0] + names[1][0];
+            document.getElementById('user-avatar').innerText = initials;
+        }
+
+        getCurrentUser();
+    </script>
 </body>
 </html>

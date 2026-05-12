@@ -15,6 +15,7 @@ body {
     background-color: #333333;
     font-size: 1.2rem;
     font-weight: 350;
+    z-index: 101;
 }
 
 .navbar ul {
@@ -52,14 +53,30 @@ body {
 .footer {
     background-color: #2a2a2a;
     padding: 3vh 2vw;
-    margin-top: auto;
 }
 
 .footer-container {
-    display: flex;
+    display: grid;
     color: white;
-    justify-content: center;
+    grid-template-columns: auto auto;
+    justify-items: center;
     align-items: center;
+    gap: 10vw;
+}
+
+.footer-socials {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-socials a {
+    padding: 1vh 0;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-socials a:hover {
+    text-decoration: underline;
 }
 
 .website-content {
@@ -104,12 +121,28 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.2s ease;
-    background-color: #333333;
-    color: white;
 }
 
-.service-links button:hover {
-    background-color: darkgray;
+.btn-primary {
+    background-color: #333333;
+    color: white;
+    border: 0.2rem solid #333333;
+}
+
+.btn-primary:hover {
+    background-color: #555555;
+    border-color: #555555;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #333333;
+    border: 0.2rem solid #333333;
+}
+
+.btn-secondary:hover {
+    background-color: #333333;
+    color: white;
 }
 
 .service-links button:disabled {
@@ -130,114 +163,92 @@ body {
     align-items: center;
  }
  
- 
- .login-popup {
+.login-popup {
     display: none;
     position: fixed;
     top: 100px;
     right: 15px;
-    border: 3px solid white;
- }
- .login-container {
+    border: 3px solid #333333;
+    border-radius: 1rem;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.login-container {
     max-width: 300px;
     padding: 10px;
     background-color: white;
- 
- 
- }
- 
- 
- .login-container input[type=email], .login-container input[type=password]{
+}
+
+.login-container input[type=email], .login-container input[type=password]{
     width: 100%;
     padding: 15px;
-    border:none;
- 
- 
- }
- 
- 
- .login-container input[type=email]:focus, .login-container input[type=password]:focus {
+    border: none;
+    box-sizing: border-box;
+}
+
+.login-container input[type=email]:focus, .login-container input[type=password]:focus {
     background-color: white;
     outline: none;
- }
+}
  
- 
- .login-container .btn {
-    background-color: grey;
-    color: white;
+.form-btn {
     padding: 16px 20px;
-    border: none;
     cursor: pointer;
     width: 100%;
     margin-bottom: 10px;
- }
- 
- 
- .login-container .cancel {
-    background-color: red;
- }
- 
+    border-radius: 0.8rem;
+}
 
- .signup-popup {
+.signup-popup {
     display: none;
     position: fixed;
     top: 100px;
     right: 15px;
-    border: 3px solid white;
- }
- .signup-container {
+    border: 3px solid #333333;
+    border-radius: 1rem;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.signup-container {
     max-width: 300px;
     padding: 10px;
     background-color: white;
- }
- 
- 
- .signup-container input[type=text],  .signup-container input[type=text], 
-  .signup-container input[type=email], .signup-container input[type=password]{
+}
+
+.signup-container input[type=text],  .signup-container input[type=text], 
+.signup-container input[type=email], .signup-container input[type=password]{
     width: 100%;
     padding: 15px;
-    border:none;
- 
- 
- }
- 
- 
- .signup-container input[type=text]:focus,  .signup-container input[type=text]:focus, 
-  .signup-container input[type=email]:focus, .signup-container input[type=password]:focus {
+    border: none;
+    box-sizing: border-box;
+}
+
+.signup-container input[type=text]:focus,  .signup-container input[type=text]:focus, 
+.signup-container input[type=email]:focus, .signup-container input[type=password]:focus {
     background-color: white;
     outline: none;
- }
+}
  
- 
- .signup-container .btn {
-    background-color: grey;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
- }
- 
- 
- .signup-container .cancel {
-    background-color: red;
- }
- 
- .logout-popup {
+.logout-popup {
     display: none;
     position: fixed;
     top: 100px;
     right: 15px;
-    border: 3px solid white;
- }
- .logout-container {
+    border: 3px solid #333333;
+    border-radius: 1rem;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.logout-container {
     max-width: 300px;
     padding: 10px;
     background-color: white;
- }
+}
 
- .logout-container .btn {
+.logout-container .btn {
     background-color: grey;
     color: white;
     padding: 16px 20px;
@@ -245,18 +256,28 @@ body {
     cursor: pointer;
     width: 100%;
     margin-bottom: 10px;
- }
+}
 
-  .logout-container .cancel {
+.logout-container .cancel {
     background-color: red;
-    
- }
+}
 
- .error-message {
+.error-message {
     color: red;
     font-size: 0.9em;
-    text-align: center;
- }
+}
+
+#user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #5c9e6e;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
 
 /* ── Create Service Page ── */
 

@@ -13,7 +13,7 @@
                 <li class="right-nav"><a href="/find_service">Find A Service</a></li>
                 <li><a href="#"><span class="material-icons">phone</span>Contact</a></li>
                 <li><a href="#"><span class="material-icons">help_outline</span>Help</a></li>
-                <li><a href="#"><span class="material-icons">person</span><span id="nav-user-name"></span></a></li>
+                <li ><a href="#"><span id="user-avatar"></span><span id="nav-user-name"></span></a></li>
                 <li>
                     <a href="javascript:void(0)" class="open-button" onclick="openLogoutForm()"><span class="material-icons">logout</span>Logout</a>
                     <div class="logout-popup" id="logoutForm">
@@ -86,6 +86,9 @@
                 }
                 const data = await response.json();
                 document.getElementById('nav-user-name').innerText = data.user.name;
+                const names = data.user.name.split(' ');
+                const initials = names[0][0] + names[1][0];
+                document.getElementById('user-avatar').innerText = initials;
             }
 
             getCurrentUser();

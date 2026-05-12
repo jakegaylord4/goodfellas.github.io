@@ -189,8 +189,6 @@ body {
     max-width: 300px;
     padding: 10px;
     background-color: white;
- 
- 
  }
  
  
@@ -348,4 +346,16 @@ body {
 
 .form-submit .btn:hover {
     background-color: darkgray;
+}
+
+#user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #5c9e6e;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
 }

@@ -1,0 +1,27 @@
+Who: Eva
+Contribution: Demonstrated how the necessity for a Bowdoin email was non-
+obvious
+What we did with it: Moved text to make it more clear that a Bowdoin email
+is required
+
+Who: Jake
+Contribution: Notified how the contact button might be confusing and how
+the home page could use more color
+What we did with it: Added a photo to the homepage and have the contact
+icon with the word contact under it to take us to the contact page (not
+implemented yet)
+
+Who: Anna
+Contribution: Pointed out how the sign-up and login pages felt disruptive
+What we did with it: Implemented prompts for sign-up and login instead of
+pages
+
+Who: w3schools https://www.w3schools.com/css/css_navbar.asp
+Contribution: Showed us how to create a navbar
+What we did with it: Used their lesson to get an idea of basic navbar
+structure which we then modified the style of to suit our site
+
+Who: w3schools https://www.w3schools.com/howto/howto_js_popup_form.asp
+Contribution: Showed us how to create pop up forms within the navbar
+What we did with it: We were able to implement our sign up and login pop
+ups into the navbar

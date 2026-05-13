@@ -99,13 +99,12 @@ def submit_service():
     service_name = request.form.get("service_name")
     service_description = request.form.get("service_description")
     service_price = request.form.get("service_price")
+    contact = request.form.get("contact")
     service_image = request.files.get("service_image")
 
-    if not all([service_name, service_description, service_price, service_image]):
+    if not all([service_name, service_description, service_price, contact, service_image]):
         return render_template('createservice.html', error="Missing required fields")
     
-    filename = service_image.filename
-
     # Create a unique name for the image
     extension = os.path.splitext(service_image.filename)[1]
     new_name = str(uuid.uuid4()) + extension
@@ -114,8 +113,8 @@ def submit_service():
     os.makedirs(upload_folder, exist_ok=True)
     service_image.save(os.path.join(upload_folder, new_name))
     
-    add_service(user_id, service_name, service_description, service_price, new_name)
+    add_service(user_id, service_name, service_description, service_price, contact, new_name)
     return render_template('createservice.html', success='Service created successfully!')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5001)))
+    app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5000)))

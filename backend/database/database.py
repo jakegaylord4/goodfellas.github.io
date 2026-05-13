@@ -4,7 +4,7 @@ user_database = [
 id_counter = 2
 
 service_database = [
-    {"id": 1, "service_name": "example_service", "service_description": "example_service_description", "service_price": 100, "service_image": "example_service_image"}
+    {"id": 1, "service_name": "example_service", "service_description": "example_service_description", "service_price": 100, "contact": "demo@gmail.com", "service_image": "example_service_image"}
 ]
 
 
@@ -59,7 +59,7 @@ def delete_user(user_id):
             return True
     return False
 
-def add_service(user_id,service_name, service_description, service_price, service_image):
+def add_service(user_id,service_name, service_description, service_price, contact, service_image):
     print("ADDING SERVICE")
     
     service = {
@@ -67,6 +67,7 @@ def add_service(user_id,service_name, service_description, service_price, servic
         "service_name": service_name,
         "service_description": service_description,
         "service_price": service_price,
+        "contact": contact,
         "service_image": service_image
     }
     service_database.append(service)

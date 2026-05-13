@@ -1,4 +1,6 @@
-# Flask Backend Setup
+# PolarGigs
+
+## GitHub Link: https://github.com/jakegaylord4/goodfellas.github.io/tree/non-auth
 
 ## How to Start the Server
 

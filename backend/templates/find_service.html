@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
         <title>PolarGigs</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='service_style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
@@ -27,14 +28,17 @@
             </ul>
         </nav>
         <div class="website-content">
-            {% for service in services %}
-                <div>
-                    <h2>{{ service.service_name }}</h2>
-                    <p>{{ service.service_description }}</p>
-                    <p>{{ service.service_price }}</p>
-                    <img src="{{ url_for('static', filename='uploads/' + service.service_image) }}" alt="{{ service.service_name }}">
-                </div>
-            {% endfor %}
+            <div class="find-service-container">
+                <h1>Find a Service</h1>
+                {% for service in services %}
+                    <div>
+                        <h2>{{ service.service_name }}</h2>
+                        <p>{{ service.service_description }}</p>
+                        <p>{{ service.service_price }}</p>
+                        <img src="{{ url_for('static', filename='uploads/' + service.service_image) }}" alt="{{ service.service_name }}">
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

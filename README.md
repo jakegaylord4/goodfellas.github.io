@@ -29,3 +29,16 @@
 ---
 
 **Note:** If you see an error about the port being in use, either stop the other process or change the `PORT` in `.env`.
+
+## App Usage
+
+1. Create an account with the Sign-Up button.
+
+2. Login with your new account details.
+
+3. Find or create a service with their respective pages.
+
+## App Notes
+
+- The app comes prepopulated with two example services to view.
+- Data does not persist between server restarts. Images are saved to disk, but all other data will be lost.

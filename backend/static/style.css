@@ -46,6 +46,10 @@ body {
     background-color: #111111;
 }
 
+.navbar li a.disabled-nav:hover {
+    background-color: transparent;
+}
+
 .right-nav {
     margin-left: auto;
 }

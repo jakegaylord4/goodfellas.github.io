@@ -1,3 +1,8 @@
+Who: Userstudy Participants
+Contribution: Tested our design to inform us about its efficiency and qualities.
+What we did with it: We adjusted the appearence of our design to make the 
+user pathways more clear.
+
 Who: Eva
 Contribution: Demonstrated how the necessity for a Bowdoin email was non-
 obvious

@@ -4,7 +4,8 @@ user_database = [
 id_counter = 2
 
 service_database = [
-    {"id": 1, "service_name": "example_service", "service_description": "example_service_description", "service_price": 100, "contact": "demo@gmail.com", "service_image": "example_service_image"}
+    {"id": 1, "service_name": "Car Detailing", "service_description": "I will detail your car!", "service_price": "$80-120", "contact": "(777) 777-7777", "service_image": "car-detail.jpg"},
+    {"id": 2, "service_name": "Manicure", "service_description": "I will do your nails!", "service_price": "$30-50", "contact": "(888) 888-8888", "service_image": "nails.jpg"}
 ]
 
 

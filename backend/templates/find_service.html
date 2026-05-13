@@ -38,8 +38,8 @@
                                 <img src="{{ url_for('static', filename='uploads/' + service.service_image) }}" alt="{{ service.service_name }}">
                                 <h2>{{ service.service_name }}</h2>
                                 <p>{{ service.service_description }}</p>
-                                <p>{{ service.contact }}</p>
-                                <p>{{ service.service_price }}</p> 
+                                <p>Contact: {{ service.contact }}</p>
+                                <p>Price: {{ service.service_price }}</p> 
                             </div>
                         </div>
                     {% endfor %}

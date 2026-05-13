@@ -20,7 +20,7 @@
 
 4. **Run the Flask server:**
    ```
-   python app.py
+   python3 app.py
    ```
 
 - The server will start on the port specified in `.env` (default is 5000 or 5001 if 5000 is in use).

@@ -58,10 +58,18 @@ body {
 .footer-container {
     display: grid;
     color: white;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     justify-items: center;
-    align-items: center;
     gap: 10vw;
+}
+
+.footer-info {
+    padding: 10% 0;
+}
+
+#footer-contact p {
+    padding: 1vh 0;
+    margin: 0;
 }
 
 .footer-socials {

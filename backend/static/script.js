@@ -47,3 +47,13 @@ if (fileInput) {
     document.getElementById('file-name').innerText = fileName;
   });
 }
+
+// Filter for services that have the search query in their name or description
+function filterServices() {
+  const query = document.getElementById('search-bar').value.toLowerCase();
+  document.querySelectorAll('.service-card').forEach(card => {
+    const name = card.querySelector('h2').textContent.toLowerCase();
+    const desc = card.querySelector('p').textContent.toLowerCase();
+    card.style.display = (name.includes(query) || desc.includes(query)) ? '' : 'none';
+  })
+}

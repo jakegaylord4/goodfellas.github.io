@@ -26,3 +26,12 @@
 .card-price {
     font-weight: bold;
 }
+
+#search-bar {
+    padding: 1rem;
+    width: 50%;
+    margin: 1rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.4rem;
+    background-color: white;
+}
